@@ -116,14 +116,16 @@ class Array(object):
 
         # TODO: need to add usedSize - reduce it
         # TODO: need remove dependency on None
-        if index >= 0 and index < self.__len__():
+        if index >= 0 and index <= self.__len__()-1:
             self._items[index] = None
-            self.usedSize -= 1
+
             i = self.__len__()-1
             j = index
             while i > j: #iterate from the index till end of list
                 self._items[j] = self._items[j+1] #shift element from right to the left by one
                 j += 1 #move index over to the right by one
+            self._items[j] =None
+            self.usedSize -= 1
         else:
             print("Index out of bounds")
 

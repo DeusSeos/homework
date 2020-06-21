@@ -48,7 +48,7 @@ def addMovie(movieArray):
             isValid = True
         except ValueError as ex:
             print("{0} cannot be converted to a float: {1} \nPlease enter a valid rating.".format(duration, ex))
-    movieArray.insert(len(movieArray)-1, Movie(title=title, year=year, rating=rating, duration=duration))
+    movieArray.insert(len(movieArray), Movie(title=title, year=year, rating=rating, duration=duration))
     display(movieArray)
 
 
@@ -69,13 +69,14 @@ def sortDuration(movieArray=Array(0, None)):
 
 def removeMovie(movieArray=Array(0, None)):
     n = len(movieArray)
-    if type(movieArray) != Movie:
+    if type(movieArray[0]) != Movie:
         print("There are no movies in the list. Select (a) at the menu to enter more movies.\n")
         return
     isValid = False
     while not isValid:
         try:
-            index = int(input("Enter a movie's number to be removed (1-{})").strip().format(n))
+
+            index = input("Enter a movie's number to be removed (1-{}): ".format(n)).strip()
             index = int(index)
             if index < 1 or index > n:
                 print("Value is not within bounds. Please enter a valid selection.")
@@ -84,7 +85,9 @@ def removeMovie(movieArray=Array(0, None)):
                 isValid = True
         except ValueError as ex:
             print("{0} cannot be converted to an int: {1} \nPlease enter a valid year.".format(index, ex))
-    movieArray.remove(index)
+    movieArray.remove(index-1)
+    display(movieArray)
+
 
 
 def sortYear(movieArray=Array(0, None)):
@@ -205,18 +208,22 @@ def quickSortPartitionHelper(low,high,movieArray=Array(0,None)):
 
 
 if __name__ == '__main__':
-    movieArray = Array(3, None)
+    """movieArray = Array(3, None)
     movieArray.insert(2, (Movie("a", 1, 5, 1)))
     movieArray.insert(2, (Movie("b", 2, 4, 2)))
     movieArray.insert(2, (Movie("c", 3, 3, 3)))
 
-    movieArray[3] = Movie("d", 4, 2, 4)
+    movieArray[3] = Movie("d", 4, 2, 4)"""
 
 
-    """
+
 
 
     movieArray = Array(5, None)
+    movieArray.insert(2, (Movie("a", 1, 5, 1)))
+    movieArray.insert(2, (Movie("b", 2, 4, 2)))
+    movieArray.insert(2, (Movie("c", 3, 3, 3)))
+
     while True:
         options = ['L List all movies', '', 'A Add a movie', 'E Remove a movie', 'D Arrange by Duration',
                    'T Arrange by Title', 'V Arrange by year Viewed', 'R Arrange by Rating', 'Q Quit']
@@ -242,4 +249,3 @@ if __name__ == '__main__':
             #display(movieArray)
         else:
             print("Please pick one of the options listed.\n")
-"""
