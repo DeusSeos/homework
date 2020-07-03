@@ -1,7 +1,7 @@
 from MovieArray import Movie
 from MovieArray import Array
 
-
+"""Supporting functions for the menu"""
 def display(movieArray):
     if movieArray[0] == None:
         print("There are no movies to be displayed. Please select (a) in order to add to the movie list.")
@@ -22,7 +22,8 @@ def display(movieArray):
 
 
 def addMovie(movieArray):
-    title = ''
+
+    """Each while loop checks valid input then saves to local variable"""
     title = input("Enter the movie's name: ")
     isValid = False
     while not isValid:
@@ -48,6 +49,7 @@ def addMovie(movieArray):
             isValid = True
         except ValueError as ex:
             print("{0} cannot be converted to a float: {1} \nPlease enter a valid rating.".format(duration, ex))
+    """Insert at the end of the array"""
     movieArray.insert(len(movieArray), Movie(title=title, year=year, rating=rating, duration=duration))
     display(movieArray)
 
@@ -68,6 +70,7 @@ def sortDuration(movieArray=Array(0, None)):
 
 
 def removeMovie(movieArray=Array(0, None)):
+    """Remove movie logic. checking validity of the variable."""
     n = len(movieArray)
     if type(movieArray[0]) != Movie:
         print("There are no movies in the list. Select (a) at the menu to enter more movies.\n")
@@ -98,18 +101,19 @@ def sortYear(movieArray=Array(0, None)):
         middle = n // 2
         left = []
         right = []
+        """Splitting the arrays down the middle then appending to two different lists"""
         for i in range(middle):
             if movieArray[i] == Movie:
                 left.append(movieArray[i])
         for i in range(middle, n):
             if movieArray[i] == Movie:
                 right.append(movieArray[i])
-
+        """Recursively split"""
         sortYear(left)
         sortYear(right)
 
         i = j = k = 0
-
+        """Do comparisons to see which is smaller and switch those"""
         while i < len(left) and j < len(right):
             if left[i].getYear() < right[j].getYear():
                 movieArray[k] = left[i]
@@ -135,11 +139,12 @@ def sortYear(movieArray=Array(0, None)):
 
 
 def sortTitle(movieArray=Array(0, None)):
-    """XXXXX Sorting implementation"""
+    """Selction Sorting implementation"""
 
     n = len(movieArray)
 
     if n > 1 and type(movieArray[0]) == Movie and type(movieArray[1] == Movie):
+        """"""
         for i in range(n):
             minIndex = i
             for j in range(i+1, n):
@@ -167,17 +172,15 @@ def sortRating(movieArray=Array(0, None)):
 
 
 def quickSortHelper(i,j,movieArray=Array(0,None)):
+    """"Recursive funtion caller."""
     if i < j:
         pivot = quickSortPartitionHelper(i,j,movieArray)
         quickSortHelper(i, pivot-1, movieArray)
         quickSortHelper(pivot+1, j, movieArray)
 
-# This function takes last element as pivot, places
-# the pivot element at its correct position in sorted
-# array, and places all smaller (smaller than pivot)
-# to left of pivot and all greater elements to right
-# of pivot
+
 def quickSortPartitionHelper(low,high,movieArray=Array(0,None)):
+    """Partition the array into different smaller sections"""
     i = (low - 1)  # index of smaller element
 
     pivot = movieArray[high].getRating()  # pivot
@@ -193,14 +196,6 @@ def quickSortPartitionHelper(low,high,movieArray=Array(0,None)):
 
     movieArray[i + 1], movieArray[high] = movieArray[high], movieArray[i + 1]
     return (i + 1)
-
-
-    # The main function that implements QuickSort
-# arr[] --> Array to be sorted,
-# low  --> Starting index,
-# high  --> Ending index
-
-
 
 
 
@@ -220,10 +215,8 @@ if __name__ == '__main__':
 
 
     movieArray = Array(5, None)
-    movieArray.insert(2, (Movie("a", 1, 5, 1)))
-    movieArray.insert(2, (Movie("b", 2, 4, 2)))
-    movieArray.insert(2, (Movie("c", 3, 3, 3)))
 
+    """Continue loop till exit"""
     while True:
         options = ['L List all movies', '', 'A Add a movie', 'E Remove a movie', 'D Arrange by Duration',
                    'T Arrange by Title', 'V Arrange by year Viewed', 'R Arrange by Rating', 'Q Quit']
