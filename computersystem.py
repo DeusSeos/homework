@@ -13,11 +13,9 @@ class ComputerSystem():
         _os (str): the operating system of this computer
     """
 
-    def __init__(self, ip_addr, location, date, vendor="Dell"):
+    def __init__(self, ip_addr, vendor = "Dell"):
         self.ip_addr = ip_addr
-        self.location = location
         self._vendor = vendor
-        self._purchaseDate = date
 
 
     def ls(self):
@@ -40,7 +38,7 @@ class ComputerSystem():
 
     osname = property(_get_os)
 
-    def getspace(self):
+    def getSpace(self):
         # subclass to implement
         pass
 
@@ -68,5 +66,5 @@ class ComputerSystem():
         return self._purchaseDate
 
     def __str__(self):
-        return "IP address: {0.ip_addr}, location: {0.location}, OS: {0._os}, manufacturer: {0._vendor}".format(self)
+        return "Purchase Date: {0._purchaseDate}, IP address: {0.ip_addr}, OS: {0._os}, manufacturer: {0._vendor}".format(self)
 
