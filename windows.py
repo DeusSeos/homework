@@ -18,7 +18,8 @@ class Windows(ComputerSystem):
             self._C = C
 
     def getSpace(self):
-        return "C drive: {} GB".format(self._C)
+        return "C drive: {} GB".format(self.C)
+
 
 
 if __name__ == '__main__':

@@ -19,7 +19,7 @@ class Linux(ComputerSystem):
             self._FS = FS
 
     def getSpace(self):
-        return "Filesystem: {} GB".format(self._FS)
+        return "Filesystem: {} GB".format(self.FS)
 
 
 if __name__ == '__main__':

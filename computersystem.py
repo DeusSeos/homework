@@ -45,12 +45,12 @@ class ComputerSystem():
     # Using decorator
     @property
     def manufacturer(self):
-        print("in manufacturer getter method")
+        #print("in manufacturer getter method")
         return self._vendor
 
     @manufacturer.setter
     def manufacturer(self, vendor):
-        print("in manufacturer setter method")
+        #print("in manufacturer setter method")
         self._vendor = vendor
 
     @property
@@ -64,6 +64,9 @@ class ComputerSystem():
     @purchaseDate.getter
     def purchaseDate(self):
         return self._purchaseDate
+
+    def __ge__(self, other):
+        return self.purchaseDate >= other.purchaseDate
 
     def __str__(self):
         return "Purchase Date: {0._purchaseDate}, IP address: {0.ip_addr}, OS: {0._os}, manufacturer: {0._vendor}".format(self)
