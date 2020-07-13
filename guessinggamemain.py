@@ -13,14 +13,14 @@ def orderMenu():
     print("In   Inorder")
     print("Pre  Preorder")
     print("Post Postorder")
-    print("R Return to main menu")
+    print("R Return to main menu\n")
 
 def helpMenu():
     print()
 
 def orderChoice(tree):
     orderMenu()
-    choice = input("Enter in a display order choice: ")
+    choice = input("Enter in a display order choice: ").strip().lower()
     listChoice = ["pre", 'post', "in", "return"]
     while choice not in listChoice:
         print("\nEnter a valid choice from the menu.")
@@ -28,10 +28,13 @@ def orderChoice(tree):
         choice = input("Enter in your choice: ").strip().lower()
     if choice == 'pre':
         tree.preorder()
+        print()
     elif choice == 'post':
         tree.postorder()
+        print()
     elif choice == 'in':
         tree.inorder()
+        print()
     else:
         return
 
@@ -47,7 +50,7 @@ def displayChoice():
 
 def runFuntion(choice, tree):
     if choice == 'p':
-        fileLoading(filename="Game1.txt", tree = tree)
+        fileLoading(filename="game1.txt", tree = tree)
     elif choice == 'l':
         newFile = input("Enter in the game file you want to load: ").strip()
         fileLoading(newFile, tree)
@@ -59,13 +62,15 @@ def runFuntion(choice, tree):
         return
 
 
-
 def fileLoading(filename, tree):
     filename = filename
     try:
         with open(filename, 'r') as file:
-            line = file.readline()
-            tree.insert(line)
+            while True:
+                line = file.readline().strip()
+                if not line:
+                    break
+                tree.insert(line)
     except IOError as error:
         print("Error with file", error)
 

@@ -2,25 +2,11 @@ from BinaryTree import BinaryTree
 
 def main():
     tree = BinaryTree()
-    tree.insert("George")
-    tree.insert("Michael")
-    tree.insert("Tom")
-    tree.insert("Adam")
-    tree.insert("Jones")
-    tree.insert("Peter")
-    tree.insert("Daniel")
-    printTree(tree)
+    tree.insert("200 Is it a shooter?")
+    tree.insert("99 Can you destroy the environment?")
+    tree.insert("48 ")
 
-    print("\nAfter delete George:")
-    tree.delete("George")
-    printTree(tree)
 
-    print("\nAfter delete Adam:")
-    tree.delete("Adam")
-    printTree(tree)
-
-    print("\nAfter delete Michael:")
-    tree.delete("Michael")
     printTree(tree)
 
 def printTree(tree):
