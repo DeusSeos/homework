@@ -56,8 +56,8 @@ def connectTwoCircles(x1, y1, x2, y2):
 window = Tk() # Create a window
 window.title("DisplayBinaryTree") # Set a title
 
-width = 200
-height = 200
+width = 400
+height = 400
 radius = 20
 vGap = 50
 canvas = Canvas(window, width = width, height = height)

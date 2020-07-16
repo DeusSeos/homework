@@ -1,15 +1,31 @@
-100
-50
-200
-25
-75
-150
-250
-12
-36
-65
-85
-125
-175
-225
-275
+Animal Guessing game
+Test description
+100 Does it have fur?
+050 Does it live on land?
+200 Is it domesticated?
+025 Is it smaller than an average human?
+075 Does it have legs?
+150 Is it bigger than a human?
+250 Does it bark?
+015 Is it carnivorous?
+035 Does it live in water?
+060 Is it bigger than a human?
+080 Does it live in the tropics?
+125 Does it shed?
+175 Does it roar?
+225 Does it go meow?
+275 Is it bigger than an average human hand?
+010 Your animal is a whale.
+020 Your animal is a shark.
+085 Your animal is a gecko.
+055 Your animal is a garden snake.
+065 Your animal is a boa constrictor.
+085 Your animal is a gecko.
+140 Your animal is a mouse.
+120 Your animal is a squirrel.
+180 Your animal is a lion.
+160 Your animal is a cheetah.
+220 Your animal is a rabbit
+245 Your animal is a cat
+265 Your animal is a hamster.
+300 Your animal is a dog.

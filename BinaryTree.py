@@ -1,3 +1,12 @@
+
+class TreeNode():
+    def __init__(self, e):
+        self.element = e
+        self.left = None  # Point to the left node, default None
+        self.right = None  # Point to the right node, default None
+
+
+
 class BinaryTree:
     def __init__(self):
         self.root = None
@@ -162,16 +171,10 @@ class BinaryTree:
 
     # Remove all elements from the tree
     def clear(self):
-        self.root == None
-        self.size == 0
+        self.root = None
+        self.size = 0
 
     # Return the root of the tree
     def getRoot(self):
         return self.root
 
-
-class TreeNode:
-    def __init__(self, e):
-        self.element = e
-        self.left = None  # Point to the left node, default None
-        self.right = None  # Point to the right node, default None
